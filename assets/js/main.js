@@ -36,13 +36,14 @@ const btn = document.querySelector("#button");
 
 const output = document.querySelector("p");
 
-
+    
 // Array zum speichern von den Objekt-Abfragen
 const speicherArray = []
 let counter = 0;
+let farbeRot = 0
 
 // Objekt erstellen
-
+ 
 class DatenObjekt {
     constructor(inputNameVal, inputAlterVal, inputCheckVal, nameVaribale, dateAusgabe) {
         this.name = inputNameVal;
@@ -87,21 +88,21 @@ function abschicken() {
     const seconds = date.getSeconds();
 
     console.log(`${month}/${day}/${year} ${hours}:${minutes}:${seconds}`);
-    const dateAusgabe =`${month}/${day}/${year} ${hours}:${minutes}:${seconds}`
+    const dateAusgabe = `${month}/${day}/${year} ${hours}:${minutes}:${seconds}`
     console.log(dateAusgabe);
 
 
-          // befüllt das Objekt mit den Daten von den Inputs
-        // variable erstellt eine Variable die sich bei jedem 
-        /// durchlauf praktisch dynamisch mitverändert 
-        /// und den InputNamen dynamisch der Variable zuweist
-        let varibale = `${counter}_${inputNameVal}`
-        varibale = new DatenObjekt(inputNameVal, inputAlterVal, inputCheckVal, `${counter}_${inputNameVal}`, dateAusgabe);
-        speicherArray.push(varibale);
-        console.log(varibale);
+    // befüllt das Objekt mit den Daten von den Inputs
+    // variable erstellt eine Variable die sich bei jedem 
+    /// durchlauf praktisch dynamisch mitverändert 
+    /// und den InputNamen dynamisch der Variable zuweist
+    let varibale = `${counter}_${inputNameVal}`
+    varibale = new DatenObjekt(inputNameVal, inputAlterVal, inputCheckVal, `${counter}_${inputNameVal}`, dateAusgabe);
+    speicherArray.push(varibale);
+    console.log(varibale);
 
-        console.log(speicherArray);
-        console.table(speicherArray);
+    console.log(speicherArray);
+    console.table(speicherArray);
     // prüfen ob Felder ausgefüllt sind
     // Prüfen ob Prüfung bestanden ist !!! -> noch else if 
     if (inputNameVal > "" && inputAlterVal > 0 && inputCheckVal == true) {
@@ -111,28 +112,30 @@ function abschicken() {
 
 
 
-  
-       //  document.write = (`${varibale} <br>`);     // geht nicht,  :-(
+
+        //  document.write = (`${varibale} <br>`);     // geht nicht,  :-(
         // output.innerHTML += (`${varibale} <br>`);  // kommt nur der Text Object :-(
         ergebnis = (`🫵 ${inputNameVal}, ${inputAlterVal} Jahre alt.  🏆  <br>`);
     }
     else { // checkbox = false --> Prüfung   -  nicht  -  bestanden
-        ergebnis  = (`<span> <color:"red">😱 ${inputNameVal}, ${inputAlterVal} Jahre alt.  👎 </span> <br>`);
         // text in Farbe rot 
-        let red2 = "red";
-        document.querySelector("span").style.color = red2;
+        farbeRot = 1
+        ergebnis = (`<span> 😱 ${inputNameVal}, ${inputAlterVal} Jahre alt.  👎 </span> <br>`);
 
-   
     }
-output.innerHTML += ergebnis
-// text rot
-
+    output.innerHTML += ergebnis
+    // text rot
+    if (farbeRot == 1) {
+        document.querySelector("span").classList.add("js_yellow_background");
+    }
+    console.log(output.innerHTML);
+    console.log(ergebnis);
 
 }
 console.log(speicherArray);
 console.table(speicherArray);
-document.write += speicherArray+"<br>";
+document.write += speicherArray + "<br>";
 
-
+abschicken()
 
 btn.addEventListener("click", abschicken)
