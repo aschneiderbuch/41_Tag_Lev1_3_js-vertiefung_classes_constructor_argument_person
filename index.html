@@ -11,15 +11,18 @@
    <form action="">
 
     <article>
-        <input type="text" name="name" id="name" placeholder="Name">
-        <input type="number" name="alter" id="alter" placeholder="Alter">
+        <input id="inputName" type="text" name="name" id="name" placeholder="Name" value="name">
+        <input id="inputAlter" type="number" name="alter" id="alter" placeholder="Alter" value="10">
     </article>
     <article>
-        <input type="checkbox" name="bestanden" id="bestanden">
-        <label for="bestanden">Prüfung bestanden?</label>
+        <input type="checkbox" name="bestanden" id="bestanden" checked>
+        <label id="buttonCheck" for="bestanden">Prüfung bestanden?</label>
     </article>
     <article>
-        <input type="button" value="übermitteln">
+        <input id="button" type="button" value="übermitteln">
+    </article>
+    <article>
+        <p id="output"></p>
     </article>
    </form>
         
