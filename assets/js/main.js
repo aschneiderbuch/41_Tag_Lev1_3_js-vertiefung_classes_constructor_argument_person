@@ -40,6 +40,70 @@ const output = document.querySelector("p");
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function abschicken() {
     console.log("in der Funktion");
     const inputNameVal = inputName.value;
