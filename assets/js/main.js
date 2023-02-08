@@ -44,12 +44,13 @@ let counter = 0;
 // Objekt erstellen
 
 class DatenObjekt {
-    constructor(inputNameVal, inputAlterVal, inputCheckVal, nameVaribale) {
+    constructor(inputNameVal, inputAlterVal, inputCheckVal, nameVaribale, dateAusgabe) {
         this.name = inputNameVal;
         console.log(this.name);
         this.alter = inputAlterVal;
         this.check = inputCheckVal;
         this.nameVaribale = nameVaribale;
+        this.dateAusgabe = dateAusgabe;
     }
     description() {
         console.log(this.name + " " + this.alter + " " + this.check);
@@ -72,7 +73,22 @@ function abschicken() {
     console.log(inputAlterVal);
     console.log(inputCheckVal);
 
-     counter = counter + 1;
+    // Zählt die Buttondrücke mit
+    counter = counter + 1;
+
+    // logt das Datum und die Uhrzeit zum eingabeZeitpunkt mit
+    const date = new Date();
+
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1; // January is 0
+    const day = date.getDate();
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const seconds = date.getSeconds();
+
+    console.log(`${month}/${day}/${year} ${hours}:${minutes}:${seconds}`);
+    const dateAusgabe =`${month}/${day}/${year} ${hours}:${minutes}:${seconds}`
+    console.log(dateAusgabe);
 
     // prüfen ob Felder ausgefüllt sind
     // Prüfen ob Prüfung bestanden ist !!! -> noch else if 
@@ -88,17 +104,21 @@ function abschicken() {
         /// durchlauf praktisch dynamisch mitverändert 
         /// und den InputNamen dynamisch der Variable zuweist
         let varibale = `${counter}_${inputNameVal}`
-        varibale = new DatenObjekt(inputNameVal, inputAlterVal, inputCheckVal, `${counter}_${inputNameVal}`);
-        speicherArray.push(varibale); 
+        varibale = new DatenObjekt(inputNameVal, inputAlterVal, inputCheckVal, `${counter}_${inputNameVal}`, dateAusgabe);
+        speicherArray.push(varibale);
         console.log(varibale);
 
         console.log(speicherArray);
-
+        console.table(speicherArray);
+       //  document.write = (`${varibale} <br>`);     // geht nicht,  :-(
+        // output.innerHTML += (`${varibale} <br>`);  // kommt nur der Text Object :-(
+        output.innerHTML += (`${inputNameVal} <br>`);
     }
 
 }
 console.log(speicherArray);
 console.table(speicherArray);
+document.write += speicherArray+"<br>";
 
 
 
@@ -125,6 +145,16 @@ console.log(nameVaribale);
  */
 
 
+const date = new Date();
+
+const year = date.getFullYear();
+const month = date.getMonth() + 1; // January is 0
+const day = date.getDate();
+const hours = date.getHours();
+const minutes = date.getMinutes();
+const seconds = date.getSeconds();
+
+console.log(`${month}/${day}/${year} ${hours}:${minutes}:${seconds}`);
 
 
 
