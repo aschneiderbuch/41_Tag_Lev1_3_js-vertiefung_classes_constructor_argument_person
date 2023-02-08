@@ -90,16 +90,8 @@ function abschicken() {
     const dateAusgabe =`${month}/${day}/${year} ${hours}:${minutes}:${seconds}`
     console.log(dateAusgabe);
 
-    // prüfen ob Felder ausgefüllt sind
-    // Prüfen ob Prüfung bestanden ist !!! -> noch else if 
-    if (inputNameVal > "" && inputAlterVal > 0 && inputCheckVal == true) {
-        console.log("in der If = alles true");
 
-
-
-
-
-        // befüllt das Objekt mit den Daten von den Inputs
+          // befüllt das Objekt mit den Daten von den Inputs
         // variable erstellt eine Variable die sich bei jedem 
         /// durchlauf praktisch dynamisch mitverändert 
         /// und den InputNamen dynamisch der Variable zuweist
@@ -110,10 +102,31 @@ function abschicken() {
 
         console.log(speicherArray);
         console.table(speicherArray);
+    // prüfen ob Felder ausgefüllt sind
+    // Prüfen ob Prüfung bestanden ist !!! -> noch else if 
+    if (inputNameVal > "" && inputAlterVal > 0 && inputCheckVal == true) {
+        console.log("in der If = alles true");
+
+
+
+
+
+  
        //  document.write = (`${varibale} <br>`);     // geht nicht,  :-(
         // output.innerHTML += (`${varibale} <br>`);  // kommt nur der Text Object :-(
-        output.innerHTML += (`${inputNameVal} <br>`);
+        ergebnis = (`🫵 ${inputNameVal}, ${inputAlterVal} Jahre alt.  🏆  <br>`);
     }
+    else { // checkbox = false --> Prüfung   -  nicht  -  bestanden
+        ergebnis  = (`<span> <color:"red">😱 ${inputNameVal}, ${inputAlterVal} Jahre alt.  👎 </span> <br>`);
+        // text in Farbe rot 
+        let red2 = "red";
+        document.querySelector("span").style.color = red2;
+
+   
+    }
+output.innerHTML += ergebnis
+// text rot
+
 
 }
 console.log(speicherArray);
@@ -123,85 +136,3 @@ document.write += speicherArray+"<br>";
 
 
 btn.addEventListener("click", abschicken)
-
-
-
-// befüllt das Objekt mit den Daten von den Inputs
-//const test1 = new DatenObjekt(inputNameVal, inputAlterVal, inputCheckVal, test1);
-
-
-
-
-
-
-
-/* // ausgabe von Objekt
-console.log(this.name + " " + this.alter + " " + this.check);
-console.log("in der Funktion DatenObjekt");
-console.log(nameVaribale);
-
-
-
- */
-
-
-const date = new Date();
-
-const year = date.getFullYear();
-const month = date.getMonth() + 1; // January is 0
-const day = date.getDate();
-const hours = date.getHours();
-const minutes = date.getMinutes();
-const seconds = date.getSeconds();
-
-console.log(`${month}/${day}/${year} ${hours}:${minutes}:${seconds}`);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
